@@ -1,0 +1,2 @@
+https://countriesnow.space/api/v0.1/countries/states
+https://raw.githubusercontent.com/Rudloff/french-postal-codes-api/master/insee.csv
