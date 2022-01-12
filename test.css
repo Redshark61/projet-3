@@ -16,7 +16,7 @@ input::-webkit-calendar-picker-indicator {
   margin: auto;
 }
 
-.input-container::before {
+.input-container.input-container::before {
   content: "";
   display: block;
   position: absolute;
@@ -29,5 +29,54 @@ input::-webkit-calendar-picker-indicator {
   height: 0px;
   border: 10px solid red;
   border-color: transparent transparent red transparent;
+}
+
+p {
+  color: white;
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: orange;
+  border-radius: 50%;
+}
+
+.loading.active {
+  border: 10px solid white;
+  border-color: transparent transparent white transparent;
+  -webkit-animation: load 1s ease infinite;
+          animation: load 1s ease infinite;
+}
+
+.loading.loading.done {
+  -webkit-animation: none;
+          animation: none;
+  background-color: lightgreen;
+}
+
+@-webkit-keyframes load {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes load {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 /*# sourceMappingURL=test.css.map */
