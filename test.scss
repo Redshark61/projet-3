@@ -1,0 +1,30 @@
+body {
+    background: #000;
+    height: 100vh;
+}
+
+/* Change the color of the arrow next to the input */
+input::-webkit-calendar-picker-indicator {
+    // color: #f00;
+    visibility: hidden;
+}
+
+.input-container{
+    position: relative;
+    width: fit-content;
+    margin: auto;
+}
+
+.input-container::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    transform: translateY(25%) rotate(180deg);
+    right: 0;
+    color: #f00;
+    width: 0px;
+    height: 0px;
+    border: 10px solid red;
+    border-color: transparent transparent red transparent;
+}
