@@ -73,6 +73,61 @@ a[class*="button--"][class*="--light-green"]:hover {
   background: #c3f0d0;
 }
 
+.progression-container {
+  margin-inline: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.progression-dot {
+  margin: 2rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  background: #007120;
+  -webkit-box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
+          box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
+  border-radius: 14px;
+  color: #E7FFEE;
+  border-radius: 50%;
+  position: relative;
+}
+
+.progression-dot span {
+  line-height: 2rem;
+}
+
+.progression-dot:not(.progression-dot:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 60%;
+  width: 6rem;
+  height: .7rem;
+  background: #E3CF97;
+  z-index: -1;
+}
+
+.progression-dot[data-active="true"] {
+  background: #5A70BD;
+  /* activate clay light purple */
+  -webkit-box-shadow: inset -4px -4px 9px -4px #A8BAF8, inset 5px 5px 9px #1A2C68;
+          box-shadow: inset -4px -4px 9px -4px #A8BAF8, inset 5px 5px 9px #1A2C68;
+}
+
+.progression-dot[data-active="false"] {
+  background: #5A70BD;
+  /* clay light purple */
+  -webkit-box-shadow: 5px 4px 7px rgba(35, 48, 94, 0.5), inset -5px -5px 9px #1A2C68, inset 4px 4px 9px #A8BAF8;
+          box-shadow: 5px 4px 7px rgba(35, 48, 94, 0.5), inset -5px -5px 9px #1A2C68, inset 4px 4px 9px #A8BAF8;
+}
+
 .login {
   height: 100%;
   -webkit-box-pack: center;

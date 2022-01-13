@@ -15,6 +15,23 @@
     color: $light-green;
 }
 
+@mixin active-clay-purple {
+    background: $light-purple;
+    /* activate clay light purple */
+
+    box-shadow: inset -4px -4px 9px -4px #A8BAF8,
+        inset 5px 5px 9px #1A2C68;
+}
+
+@mixin clay-purple {
+    background: $light-purple;
+    /* clay light purple */
+
+    box-shadow: 5px 4px 7px rgba(35, 48, 94, 0.5),
+        inset -5px -5px 9px #1A2C68,
+        inset 4px 4px 9px #A8BAF8;
+}
+
 @mixin button($size: 1rem) {
     display: inline-block;
     text-decoration: none;
