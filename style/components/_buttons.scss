@@ -1,0 +1,20 @@
+a[class*="button--"] {
+
+    @include button;
+
+    &[class*="--dark-green"] {
+        @include clay-dark-green;
+
+        &:hover {
+            background: $hover-dark-green;
+        }
+    }
+
+    &[class*="--light-green"] {
+        @include clay-light-green;
+
+        &:hover {
+            background: $hover-light-green;
+        }
+    }
+}

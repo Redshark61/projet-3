@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Merriweather', serif;
+}
+
+h1 {
+  color: #5A70BD;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+div[class*="flex"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div[class*="flex"][class*="--col"] {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div[class*="flex"][class*="--row"] {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+a[class*="button--"] {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border-radius: 14px;
+}
+
+a[class*="button--"][class*="--dark-green"] {
+  background: #007120;
+  -webkit-box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
+          box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
+  border-radius: 14px;
+  color: #E7FFEE;
+}
+
+a[class*="button--"][class*="--dark-green"]:hover {
+  background: #1C532C;
+}
+
+a[class*="button--"][class*="--light-green"] {
+  background: #E7FFEE;
+  -webkit-box-shadow: 4px 4px 14px #0B4F1E, inset -5px -5px 9px #4B8F61, inset 4px 4px 9px #DAFEE4;
+          box-shadow: 4px 4px 14px #0B4F1E, inset -5px -5px 9px #4B8F61, inset 4px 4px 9px #DAFEE4;
+  color: #007120;
+}
+
+a[class*="button--"][class*="--light-green"]:hover {
+  background: #c3f0d0;
+}
+
+.login {
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+a[class^="button"] {
+  margin: 3rem 1rem 0 0;
+}
+
+body {
+  height: 100vh;
+  background-image: url("../img/Desktop - 2.png");
+}
+/*# sourceMappingURL=main.css.map */

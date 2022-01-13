@@ -1,0 +1,11 @@
+div[class*="flex"] {
+    display: flex;
+
+    &[class*="--col"] {
+        flex-direction: column;
+    }
+
+    &[class*="--row"] {
+        flex-direction: row;
+    }
+}

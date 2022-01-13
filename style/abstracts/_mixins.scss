@@ -1,0 +1,29 @@
+@mixin clay-light-green {
+    background: #E7FFEE;
+    box-shadow: 4px 4px 14px #0B4F1E,
+        inset -5px -5px 9px #4B8F61,
+        inset 4px 4px 9px #DAFEE4;
+    color: $dark-green;
+}
+
+@mixin clay-dark-green {
+    background: #007120;
+    box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5),
+        inset -5px -5px 9px #0F411D,
+        inset 4px 4px 9px #53EE7E;
+    border-radius: 14px;
+    color: $light-green;
+}
+
+@mixin button($size: 1rem) {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: $size;
+    font-weight: bold;
+    padding: $size 2*$size;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 14px;
+}
