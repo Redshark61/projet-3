@@ -1,5 +1,7 @@
-a[class*="button--"] {
+a[class*="btn--"],
+button[class*="btn--"] {
 
+    border: none;
     @include button;
 
     &[class*="--dark-green"] {

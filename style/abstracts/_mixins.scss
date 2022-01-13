@@ -7,7 +7,7 @@
 }
 
 @mixin clay-dark-green {
-    background: #007120;
+    background: $dark-green;
     box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5),
         inset -5px -5px 9px #0F411D,
         inset 4px 4px 9px #53EE7E;
@@ -15,18 +15,20 @@
     color: $light-green;
 }
 
+@mixin active-clay-dark-green {
+    background: $dark-green;
+    box-shadow: inset -5px -5px 9px #53EE7E,
+        inset 4px 4px 9px #0B4F1E;
+}
+
 @mixin active-clay-purple {
     background: $light-purple;
-    /* activate clay light purple */
-
     box-shadow: inset -4px -4px 9px -4px #A8BAF8,
         inset 5px 5px 9px #1A2C68;
 }
 
 @mixin clay-purple {
     background: $light-purple;
-    /* clay light purple */
-
     box-shadow: 5px 4px 7px rgba(35, 48, 94, 0.5),
         inset -5px -5px 9px #1A2C68,
         inset 4px 4px 9px #A8BAF8;
@@ -43,4 +45,21 @@
     transition: all 0.3s ease-in-out;
     cursor: pointer;
     border-radius: 14px;
+}
+
+@mixin placeholder($color, $size:1rem, $weight:normal) {
+    &::placeholder {
+        color: $color;
+        opacity: 0.5;
+        font-size: $size;
+        font-weight: $weight;
+    }
+
+    // Change the color of the date placeholder
+    &::-webkit-datetime-edit {
+        color: $color;
+        opacity: 0.5;
+        font-size: $size;
+        font-weight: $weight;
+    }
 }

@@ -36,7 +36,111 @@ div[class*="flex"][class*="--row"] {
           flex-direction: row;
 }
 
-a[class*="button--"] {
+form {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  margin-inline: auto;
+  margin-top: 2rem;
+}
+
+.form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.form-group:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.form-group:first-child {
+  margin-top: 1rem;
+}
+
+.form-group input {
+  border: none;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 0.7rem 1.4rem;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border-radius: 14px;
+  background: #007120;
+  -webkit-box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
+          box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
+  border-radius: 14px;
+  color: #E7FFEE;
+  padding: 0.5rem 1rem;
+  color: black;
+  cursor: text;
+}
+
+.form-group input:focus {
+  outline: none;
+  background: #007120;
+  -webkit-box-shadow: inset -5px -5px 9px #53EE7E, inset 4px 4px 9px #0B4F1E;
+          box-shadow: inset -5px -5px 9px #53EE7E, inset 4px 4px 9px #0B4F1E;
+}
+
+.form-group input::-webkit-input-placeholder {
+  color: #E7FFEE;
+  opacity: 0.5;
+  font-size: 0.7rem;
+  font-weight: normal;
+}
+
+.form-group input:-ms-input-placeholder {
+  color: #E7FFEE;
+  opacity: 0.5;
+  font-size: 0.7rem;
+  font-weight: normal;
+}
+
+.form-group input::-ms-input-placeholder {
+  color: #E7FFEE;
+  opacity: 0.5;
+  font-size: 0.7rem;
+  font-weight: normal;
+}
+
+.form-group input::placeholder {
+  color: #E7FFEE;
+  opacity: 0.5;
+  font-size: 0.7rem;
+  font-weight: normal;
+}
+
+.form-group input::-webkit-datetime-edit {
+  color: #E7FFEE;
+  opacity: 0.5;
+  font-size: 0.7rem;
+  font-weight: normal;
+}
+
+a[class*="btn--"],
+button[class*="btn--"] {
+  border: none;
   display: inline-block;
   text-decoration: none;
   color: white;
@@ -50,7 +154,8 @@ a[class*="button--"] {
   border-radius: 14px;
 }
 
-a[class*="button--"][class*="--dark-green"] {
+a[class*="btn--"][class*="--dark-green"],
+button[class*="btn--"][class*="--dark-green"] {
   background: #007120;
   -webkit-box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
           box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
@@ -58,18 +163,21 @@ a[class*="button--"][class*="--dark-green"] {
   color: #E7FFEE;
 }
 
-a[class*="button--"][class*="--dark-green"]:hover {
+a[class*="btn--"][class*="--dark-green"]:hover,
+button[class*="btn--"][class*="--dark-green"]:hover {
   background: #1C532C;
 }
 
-a[class*="button--"][class*="--light-green"] {
+a[class*="btn--"][class*="--light-green"],
+button[class*="btn--"][class*="--light-green"] {
   background: #E7FFEE;
   -webkit-box-shadow: 4px 4px 14px #0B4F1E, inset -5px -5px 9px #4B8F61, inset 4px 4px 9px #DAFEE4;
           box-shadow: 4px 4px 14px #0B4F1E, inset -5px -5px 9px #4B8F61, inset 4px 4px 9px #DAFEE4;
   color: #007120;
 }
 
-a[class*="button--"][class*="--light-green"]:hover {
+a[class*="btn--"][class*="--light-green"]:hover,
+button[class*="btn--"][class*="--light-green"]:hover {
   background: #c3f0d0;
 }
 
@@ -116,14 +224,12 @@ a[class*="button--"][class*="--light-green"]:hover {
 
 .progression-dot[data-active="true"] {
   background: #5A70BD;
-  /* activate clay light purple */
   -webkit-box-shadow: inset -4px -4px 9px -4px #A8BAF8, inset 5px 5px 9px #1A2C68;
           box-shadow: inset -4px -4px 9px -4px #A8BAF8, inset 5px 5px 9px #1A2C68;
 }
 
 .progression-dot[data-active="false"] {
   background: #5A70BD;
-  /* clay light purple */
   -webkit-box-shadow: 5px 4px 7px rgba(35, 48, 94, 0.5), inset -5px -5px 9px #1A2C68, inset 4px 4px 9px #A8BAF8;
           box-shadow: 5px 4px 7px rgba(35, 48, 94, 0.5), inset -5px -5px 9px #1A2C68, inset 4px 4px 9px #A8BAF8;
 }
@@ -138,7 +244,7 @@ a[class*="button--"][class*="--light-green"]:hover {
           align-items: center;
 }
 
-a[class^="button"] {
+a[class^="btn"] {
   margin: 3rem 1rem 0 0;
 }
 

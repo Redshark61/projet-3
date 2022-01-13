@@ -8,8 +8,8 @@
 
 .button
 
-.button--light-green
-.button--dark-green
+.btn--light-green
+.btn--dark-green
 
 ## Flex
 
