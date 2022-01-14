@@ -11,7 +11,7 @@
     width: 2rem;
     height: 2rem;
     text-align: center;
-    @include clay-dark-green;
+    @include btn-dark-green;
     border-radius: 50%;
     position: relative;
 
@@ -32,10 +32,10 @@
     }
 
     &[data-active="true"] {
-        @include active-clay-purple;
+        @include active-btn-purple;
     }
 
     &[data-active="false"] {
-        @include clay-purple;
+        @include btn-purple;
     }
 }

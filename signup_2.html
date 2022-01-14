@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style/main.css">
+        <link rel="shortcut icon" href="./img/icon.ico" type="image/x-icon">
+        <script src="./js/adress.js" defer></script>
+        <title>Signup - 2</title>
+    </head>
+
+    <body>
+        <div class="loading"></div>
+        <div class="progression-container">
+            <div class="progression-dot" data-active="false"><span>1</span></div>
+            <div class="progression-dot" data-active="true"><span>2</span></div>
+            <div class="progression-dot" data-active="false"><span>3</span></div>
+            <div class="progression-dot" data-active="false"><span>4</span></div>
+        </div>
+
+        <h1>Informations personnelles</h1>
+        <form action="" method="post">
+
+            <div class="form-group">
+                <label for="city">Commune</label>
+                <input type="text" name="city" id="city" class="form-control js-input-cities" placeholder="Jean"
+                    list="city--list" required>
+                <datalist id="city--list" class=".js-datalist-adress"></datalist>
+            </div>
+
+            <div class="form-group">
+                <label for="adress">Adresse</label>
+                <input type="text" name="adress" id="adress" class="form-control btn btn--dark-green js-input-address"
+                    placeholder="Dupuis" required>
+            </div>
+
+            <a href="./signup_2.html" class="btn btn--light-green">Suivant</a>
+        </form>
+    </body>
+
+</html>

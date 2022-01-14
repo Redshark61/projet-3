@@ -1,11 +1,11 @@
-a[class*="btn--"],
-button[class*="btn--"] {
+a.btn,
+button.btn {
 
     border: none;
     @include button;
 
     &[class*="--dark-green"] {
-        @include clay-dark-green;
+        @include btn-dark-green;
 
         &:hover {
             background: $hover-dark-green;
@@ -13,7 +13,7 @@ button[class*="btn--"] {
     }
 
     &[class*="--light-green"] {
-        @include clay-light-green;
+        @include btn-light-green;
 
         &:hover {
             background: $hover-light-green;

@@ -1,33 +1,32 @@
-@mixin clay-light-green {
-    background: #E7FFEE;
-    box-shadow: 4px 4px 14px #0B4F1E,
-        inset -5px -5px 9px #4B8F61,
-        inset 4px 4px 9px #DAFEE4;
+@mixin btn-light-green {
+    background: $light-green;
+    box-shadow: 4px 4px 7px $dark-green;
     color: $dark-green;
 }
 
-@mixin clay-dark-green {
+@mixin btn-dark-green($opacity: 7px) {
     background: $dark-green;
-    box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5),
-        inset -5px -5px 9px #0F411D,
-        inset 4px 4px 9px #53EE7E;
+    box-shadow: 4px 4px $opacity $dark-green;
     border-radius: 14px;
     color: $light-green;
 }
 
-@mixin active-clay-dark-green {
+@mixin active-btn-dark-green($opacity: 7px) {
     background: $dark-green;
-    box-shadow: inset -5px -5px 9px #53EE7E,
-        inset 4px 4px 9px #0B4F1E;
+    box-shadow: 4px 4px $opacity rgba($dark-green, 0.6);
 }
 
-@mixin active-clay-purple {
+@mixin active-btn-light-green($opacity: 7px) {
+    outline: dotted 2px #000;
+}
+
+@mixin active-btn-purple {
     background: $light-purple;
     box-shadow: inset -4px -4px 9px -4px #A8BAF8,
         inset 5px 5px 9px #1A2C68;
 }
 
-@mixin clay-purple {
+@mixin btn-purple {
     background: $light-purple;
     box-shadow: 5px 4px 7px rgba(35, 48, 94, 0.5),
         inset -5px -5px 9px #1A2C68,
@@ -37,12 +36,13 @@
 @mixin button($size: 1rem) {
     display: inline-block;
     text-decoration: none;
+    text-align: center;
     color: white;
     font-size: $size;
     font-weight: bold;
     padding: $size 2*$size;
     border-radius: 5px;
-    transition: all 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
     cursor: pointer;
     border-radius: 14px;
 }

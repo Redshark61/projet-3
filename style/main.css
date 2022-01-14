@@ -77,30 +77,27 @@ form {
   border: none;
   display: inline-block;
   text-decoration: none;
+  text-align: center;
   color: white;
   font-size: 0.7rem;
   font-weight: bold;
   padding: 0.7rem 1.4rem;
   border-radius: 5px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   cursor: pointer;
   border-radius: 14px;
-  background: #007120;
-  -webkit-box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
-          box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
-  border-radius: 14px;
-  color: #E7FFEE;
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
   padding: 0.5rem 1rem;
   color: black;
   cursor: text;
 }
 
 .form-group input:focus {
-  outline: none;
-  background: #007120;
-  -webkit-box-shadow: inset -5px -5px 9px #53EE7E, inset 4px 4px 9px #0B4F1E;
-          box-shadow: inset -5px -5px 9px #53EE7E, inset 4px 4px 9px #0B4F1E;
+  outline: dotted 2px #000;
 }
 
 .form-group input::-webkit-input-placeholder {
@@ -138,46 +135,49 @@ form {
   font-weight: normal;
 }
 
-a[class*="btn--"],
-button[class*="btn--"] {
+a.btn,
+button.btn {
   border: none;
   display: inline-block;
   text-decoration: none;
+  text-align: center;
   color: white;
   font-size: 1rem;
   font-weight: bold;
   padding: 1rem 2rem;
   border-radius: 5px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   cursor: pointer;
   border-radius: 14px;
 }
 
-a[class*="btn--"][class*="--dark-green"],
-button[class*="btn--"][class*="--dark-green"] {
+a.btn[class*="--dark-green"],
+button.btn[class*="--dark-green"] {
   background: #007120;
-  -webkit-box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
-          box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
+  -webkit-box-shadow: 4px 4px 7px #007120;
+          box-shadow: 4px 4px 7px #007120;
   border-radius: 14px;
   color: #E7FFEE;
 }
 
-a[class*="btn--"][class*="--dark-green"]:hover,
-button[class*="btn--"][class*="--dark-green"]:hover {
+a.btn[class*="--dark-green"]:hover,
+button.btn[class*="--dark-green"]:hover {
   background: #1C532C;
 }
 
-a[class*="btn--"][class*="--light-green"],
-button[class*="btn--"][class*="--light-green"] {
+a.btn[class*="--light-green"],
+button.btn[class*="--light-green"] {
   background: #E7FFEE;
-  -webkit-box-shadow: 4px 4px 14px #0B4F1E, inset -5px -5px 9px #4B8F61, inset 4px 4px 9px #DAFEE4;
-          box-shadow: 4px 4px 14px #0B4F1E, inset -5px -5px 9px #4B8F61, inset 4px 4px 9px #DAFEE4;
+  -webkit-box-shadow: 4px 4px 7px #007120;
+          box-shadow: 4px 4px 7px #007120;
   color: #007120;
 }
 
-a[class*="btn--"][class*="--light-green"]:hover,
-button[class*="btn--"][class*="--light-green"]:hover {
+a.btn[class*="--light-green"]:hover,
+button.btn[class*="--light-green"]:hover {
   background: #c3f0d0;
 }
 
@@ -197,8 +197,8 @@ button[class*="btn--"][class*="--light-green"]:hover {
   height: 2rem;
   text-align: center;
   background: #007120;
-  -webkit-box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
-          box-shadow: 5px 4px 7px rgba(11, 79, 30, 0.5), inset -5px -5px 9px #0F411D, inset 4px 4px 9px #53EE7E;
+  -webkit-box-shadow: 4px 4px 7px #007120;
+          box-shadow: 4px 4px 7px #007120;
   border-radius: 14px;
   color: #E7FFEE;
   border-radius: 50%;
@@ -248,8 +248,13 @@ a[class^="btn"] {
   margin: 3rem 1rem 0 0;
 }
 
+a:last-child {
+  margin-bottom: 10vh;
+}
+
 body {
   height: 100vh;
   background-image: url("../img/Desktop - 2.png");
+  background-size: cover;
 }
 /*# sourceMappingURL=main.css.map */
