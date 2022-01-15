@@ -22,7 +22,7 @@ form {
 
     input {
         border: none;
-        @include button(0.7rem);
+        @include button(0.7rem, left);
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
         padding: 0.5rem 1rem;
         color: black;
@@ -32,6 +32,6 @@ form {
             @include active-btn-light-green;
         }
 
-        @include placeholder($light-green, 0.7rem)
+        @include placeholder(#000, 0.7rem)
     }
 }

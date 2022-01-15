@@ -77,7 +77,7 @@ form {
   border: none;
   display: inline-block;
   text-decoration: none;
-  text-align: center;
+  text-align: left;
   color: white;
   font-size: 0.7rem;
   font-weight: bold;
@@ -96,40 +96,44 @@ form {
   cursor: text;
 }
 
+.form-group input *:not(input) {
+  text-align: left;
+}
+
 .form-group input:focus {
   outline: dotted 2px #000;
 }
 
 .form-group input::-webkit-input-placeholder {
-  color: #E7FFEE;
+  color: #000;
   opacity: 0.5;
   font-size: 0.7rem;
   font-weight: normal;
 }
 
 .form-group input:-ms-input-placeholder {
-  color: #E7FFEE;
+  color: #000;
   opacity: 0.5;
   font-size: 0.7rem;
   font-weight: normal;
 }
 
 .form-group input::-ms-input-placeholder {
-  color: #E7FFEE;
+  color: #000;
   opacity: 0.5;
   font-size: 0.7rem;
   font-weight: normal;
 }
 
 .form-group input::placeholder {
-  color: #E7FFEE;
+  color: #000;
   opacity: 0.5;
   font-size: 0.7rem;
   font-weight: normal;
 }
 
 .form-group input::-webkit-datetime-edit {
-  color: #E7FFEE;
+  color: #000;
   opacity: 0.5;
   font-size: 0.7rem;
   font-weight: normal;
@@ -152,6 +156,11 @@ button.btn {
   transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   cursor: pointer;
   border-radius: 14px;
+}
+
+a.btn *:not(input),
+button.btn *:not(input) {
+  text-align: left;
 }
 
 a.btn[class*="--dark-green"],
@@ -244,17 +253,23 @@ button.btn[class*="--light-green"]:hover {
           align-items: center;
 }
 
-a[class^="btn"] {
+.login a[class^="btn"] {
   margin: 3rem 1rem 0 0;
-}
-
-a:last-child {
-  margin-bottom: 10vh;
 }
 
 body {
   height: 100vh;
+  background-color: #a5ffbe;
   background-image: url("../img/Desktop - 2.png");
+  background-repeat: no-repeat;
   background-size: cover;
+}
+
+.mb-10 {
+  margin-bottom: 10vh;
+}
+
+.mt-5 {
+  margin-top: 5vh;
 }
 /*# sourceMappingURL=main.css.map */

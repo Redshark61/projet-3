@@ -33,10 +33,10 @@
         inset 4px 4px 9px #A8BAF8;
 }
 
-@mixin button($size: 1rem) {
+@mixin button($size: 1rem, $position: center) {
     display: inline-block;
     text-decoration: none;
-    text-align: center;
+    text-align: $position;
     color: white;
     font-size: $size;
     font-weight: bold;
@@ -45,6 +45,10 @@
     transition: box-shadow 0.3s ease-in-out;
     cursor: pointer;
     border-radius: 14px;
+
+    *:not(input) {
+        text-align: left;
+    }
 }
 
 @mixin placeholder($color, $size:1rem, $weight:normal) {
