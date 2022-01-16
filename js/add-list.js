@@ -2,7 +2,7 @@ const add = document.querySelectorAll(".js-add-element");
 const list = document.querySelectorAll(".js-list");
 const input = document.querySelectorAll(".js-input");
 const deleteButton = document.querySelectorAll(".js-delete");
-const item = document.querySelectorAll(".js-item");
+let item = document.querySelectorAll(".js-item");
 
 add.forEach(function (element, key) {
     element.addEventListener("click", createElement.bind(null, key));
@@ -15,6 +15,8 @@ function createElement(key) {
     } else {
         const newElement = document.createElement("li");
         newElement.classList.add("form__item");
+        newElement.classList.add("js-item");
+
         const deleteButton = document.createElement("span");
         const content = document.createElement("span");
         deleteButton.textContent = "❌";
@@ -27,14 +29,10 @@ function createElement(key) {
         newElement.appendChild(deleteButton);
         list[key].appendChild(newElement);
         input[key].value = "";
-        deleteButton.addEventListener("click", deleteItem.bind(null, key));
+        deleteButton.addEventListener("click", deleteItem);
     }
 }
 
-deleteButton.forEach(function (element, key) {
-    element.addEventListener("click", deleteItem.bind(null, key));
-});
-
-function deleteItem(key) {
-    list[key].removeChild(item[key]);
+function deleteItem(e) {
+    e.target.parentNode.remove();
 }
