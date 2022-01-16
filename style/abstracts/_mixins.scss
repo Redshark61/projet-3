@@ -4,16 +4,16 @@
     color: $dark-green;
 }
 
-@mixin btn-dark-green($opacity: 7px) {
+@mixin btn-dark-green($blur: 7px, $opacity: 1) {
     background: $dark-green;
-    box-shadow: 4px 4px $opacity $dark-green;
+    box-shadow: 4px 4px $blur rgba($dark-green, $opacity);
     border-radius: 14px;
     color: $light-green;
 }
 
-@mixin active-btn-dark-green($opacity: 7px) {
+@mixin active-btn-dark-green($blur: 7px) {
     background: $dark-green;
-    box-shadow: 4px 4px $opacity rgba($dark-green, 0.6);
+    box-shadow: 4px 4px $blur rgba($dark-green, 0.6);
 }
 
 @mixin active-btn-light-green($opacity: 7px) {
