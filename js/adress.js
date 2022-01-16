@@ -1,30 +1,7 @@
 const inputCities = document.querySelector(".js-input-cities");
 const inputAdress = document.querySelector(".js-input-address");
-const loading = document.querySelector(".loading");
+const loading = document.querySelector(".js-loader");
 
-// const url = "https://raw.githubusercontent.com/Rudloff/french-postal-codes-api/master/insee.csv";
-// const http = new XMLHttpRequest();
-// http.open("GET", url);
-// http.send();
-
-// http.onreadystatechange = (e) => {
-//     if (http.readyState === 4 && http.status === 200) {
-//         const data = http.responseText;
-//         const lines = data.split("\n");
-//         const list = document.querySelector("datalist");
-//         lines.forEach(function (line) {
-//             const columns = line.split(";");
-//             const option = document.createElement("option");
-//             option.value = columns[0];
-//             option.textContent = columns[1];
-//             list.appendChild(option);
-//         });
-//     }
-// };
-
-// const line = (async () => {
-//     return getCities();
-// })();
 getCities().then((value) => {
     inputAdress.line = value;
 });
@@ -56,7 +33,6 @@ async function validate(lines) {
         value = value.replace(/[ôö]/g, "o");
         value = value.replace(/[ùûü]/g, "u");
 
-        // console.log(lines);
         postcode = getPostCode(lines);
         console.log(postcode);
 
@@ -65,11 +41,7 @@ async function validate(lines) {
             .then((response) => response.json())
             .then((data) => {
                 const p = document.createElement("p");
-                // console.log(url);
-                // console.log(data.features);
                 let properties = data.features[0].properties;
-                p.innerHTML = properties.name + "</p><br/>" + properties.city + "</p><br/>" + url;
-                document.body.appendChild(p);
                 resolve();
             });
     });

@@ -15,8 +15,8 @@
         <div class="loading"></div>
         <div class="progression-container">
             <div class="progression-dot" data-active="false"><span>1</span></div>
-            <div class="progression-dot" data-active="true"><span>2</span></div>
-            <div class="progression-dot" data-active="false"><span>3</span></div>
+            <div class="progression-dot" data-active="false"><span>2</span></div>
+            <div class="progression-dot" data-active="true"><span>3</span></div>
             <div class="progression-dot" data-active="false"><span>4</span></div>
             <div class="progression-dot" data-active="false"><span>5</span></div>
             <div class="progression-dot" data-active="false"><span>6</span></div>
@@ -27,18 +27,25 @@
 
             <div class="form-group">
                 <label for="city">Commune</label>
-                <input type="text" name="city" id="city" class="form-control js-input-cities" placeholder="Jean"
+                <input type="text" name="city" id="city" class="form-control js-input-cities" placeholder="61250"
                     list="city--list" required>
                 <datalist id="city--list" class=".js-datalist-adress"></datalist>
             </div>
 
             <div class="form-group">
                 <label for="adress">Adresse</label>
-                <input type="text" name="adress" id="adress" class="form-control btn btn--dark-green js-input-address"
-                    placeholder="Dupuis" required>
+                <div class="loader">
+                    <input type="text" name="adress" id="adress"
+                        class="form-control btn btn--dark-green js-input-address" placeholder="12 bis rue des sources"
+                        required>
+                    <div class="js-loader"></div>
+                </div>
             </div>
 
-            <a href="./signup_2.html" class="btn btn--light-green">Suivant</a>
+            <div class="btn-group flex--col">
+                <a href="./signup_2.html" class="btn btn--light-green mt-5">Suivant</a>
+                <a href="./signup_2.html" class="btn btn--dark-green btn--small">Précédent</a>
+            </div>
         </form>
     </body>
 
