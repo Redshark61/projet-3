@@ -7,7 +7,7 @@ form {
     margin-top: 2rem;
 }
 
-.form-group {
+.form__group {
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
@@ -20,18 +20,53 @@ form {
         margin-top: 1rem;
     }
 
-    input {
-        border: none;
-        @include button(0.7rem, left);
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-        padding: 0.5rem 1rem;
-        color: black;
-        cursor: text;
+}
 
-        &:focus {
-            @include active-btn-light-green;
-        }
+.form__control {
+    border: none;
+    @include button(0.7rem, left);
+    @include placeholder(#000, 0.7rem);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 1rem;
+    color: black;
+    cursor: text;
 
-        @include placeholder(#000, 0.7rem)
+    &:focus {
+        @include active-btn-light-green;
     }
+
+}
+
+.form--add {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    &>.form__plus {
+        width: fit-content;
+        aspect-ratio: 1;
+        font-size: 1rem;
+        line-height: 1.3rem;
+        background-color: $strong-orange;
+        text-align: center;
+        border-radius: 50%;
+    }
+}
+
+.form__list {
+    list-style: none;
+    @include btn-dark-green(1);
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+.form__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form__delete {
+    display: block;
 }
