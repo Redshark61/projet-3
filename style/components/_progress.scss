@@ -15,6 +15,10 @@
     border-radius: 50%;
     position: relative;
 
+    @include media-min($phone) {
+        margin: 0.5rem;
+    }
+
     span {
         line-height: 2rem;
     }
@@ -26,6 +30,11 @@
         transform: translateY(-50%);
         left: 60%;
         width: 4rem + 2rem;
+
+        @include media-min($phone) {
+            width: 1rem + 2rem;
+        }
+
         height: .7rem;
         background: $dim-orange;
         z-index: -1;
