@@ -19,4 +19,13 @@ button.btn {
             background: $hover-light-green;
         }
     }
+
+    &.btn--small {
+        @include button(0.5rem);
+        width: fit-content;
+    }
+}
+
+div.btn-group {
+    gap: 1rem;
 }

@@ -4,16 +4,16 @@
     color: $dark-green;
 }
 
-@mixin btn-dark-green($opacity: 7px) {
+@mixin btn-dark-green($blur: 7px, $opacity: 1) {
     background: $dark-green;
-    box-shadow: 4px 4px $opacity $dark-green;
+    box-shadow: 4px 4px $blur rgba($dark-green, $opacity);
     border-radius: 14px;
     color: $light-green;
 }
 
-@mixin active-btn-dark-green($opacity: 7px) {
+@mixin active-btn-dark-green($blur: 7px) {
     background: $dark-green;
-    box-shadow: 4px 4px $opacity rgba($dark-green, 0.6);
+    box-shadow: 4px 4px $blur rgba($dark-green, 0.6);
 }
 
 @mixin active-btn-light-green($opacity: 7px) {
@@ -33,10 +33,10 @@
         inset 4px 4px 9px #A8BAF8;
 }
 
-@mixin button($size: 1rem) {
+@mixin button($size: 1rem, $position: center) {
     display: inline-block;
     text-decoration: none;
-    text-align: center;
+    text-align: $position;
     color: white;
     font-size: $size;
     font-weight: bold;
@@ -44,7 +44,11 @@
     border-radius: 5px;
     transition: box-shadow 0.3s ease-in-out;
     cursor: pointer;
-    border-radius: 14px;
+    border-radius: $size*0.75;
+
+    *:not(input) {
+        text-align: left;
+    }
 }
 
 @mixin placeholder($color, $size:1rem, $weight:normal) {
