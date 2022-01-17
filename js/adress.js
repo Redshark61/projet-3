@@ -13,6 +13,7 @@ inputAdress.addEventListener("keyup", async function (e) {
         e.preventDefault();
         // Trigger the button element with a click
         loading.classList.add("active");
+        loading.classList.remove("done");
         await validate(e.currentTarget.line);
         loading.classList.remove("active");
         loading.classList.add("done");

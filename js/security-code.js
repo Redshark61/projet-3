@@ -1,4 +1,9 @@
-var cleave = new Cleave(".js-security-code", {
-    delimiters: ["-", "-", "-", "-", "-", " "],
-    blocks: [1, 2, 2, 2, 3, 3, 2],
+const inputsSecurityCode = document.querySelectorAll(".js-security-code");
+
+inputsSecurityCode.forEach((input) => {
+    new Cleave(input, {
+        delimiters: ["-", "-", "-", "-", "-", " "],
+        blocks: [1, 2, 2, 2, 3, 3, 2],
+        numericOnly: true,
+    });
 });

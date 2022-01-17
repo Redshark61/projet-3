@@ -9,6 +9,7 @@
         <link rel="shortcut icon" href="./img/icon.ico" type="image/x-icon">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
         <script src="./js/security-code.js" defer></script>
+        <script src="./js/later-input.js" defer></script>
         <title>Signup - 2</title>
     </head>
 
@@ -16,36 +17,30 @@
         <div class="loading"></div>
         <div class="progression-container">
             <div class="progression-dot" data-active="false"><span>1</span></div>
-            <div class="progression-dot" data-active="true"><span>2</span></div>
+            <div class="progression-dot" data-active="false"><span>2</span></div>
             <div class="progression-dot" data-active="false"><span>3</span></div>
             <div class="progression-dot" data-active="false"><span>4</span></div>
             <div class="progression-dot" data-active="false"><span>5</span></div>
-            <div class="progression-dot" data-active="false"><span>6</span></div>
+            <div class="progression-dot" data-active="true"><span>6</span></div>
         </div>
 
-        <h1>Mot de passe / identifiant</h1>
+        <h1>Parents</h1>
         <form action="" method="post">
-
             <div class="form__group">
-                <label for="security-code">Code de sécurité sociale*</label>
-                <input type="tel" name="security-code" id="security-code" class="form__control js-security-code"
-                    placeholder="1-23-45-67-890-123 45" required>
+                <label for="firstname">Identifiant du parent 1</label>
+                <input type="tel" name="id1" id="id1" class="form__control js-security-code js-later-input"
+                    placeholder="1-23-45-67-890-123 45" autocomplete="off" required>
             </div>
 
             <div class="form__group">
-                <label for="password">Mot de passe*</label>
-                <input type="password" name="password" id="password" class="form__control" placeholder="***" required>
-            </div>
-
-            <div class="form__group">
-                <label for="password-confirm">Confirmer du mot de passe*</label>
-                <input type="password" name="password-confirm" id="password-confirm" class="form__control"
-                    placeholder="***" required>
+                <label for="lastname">Identifiant du parent 2</label>
+                <input type="tel" name="id2" id="id2" class="form__control js-security-code js-later-input"
+                    placeholder="1-23-45-67-890-123 45" autocomplete="off" required>
             </div>
 
             <div class="btn-group flex--col">
-                <a href="./signup_3.html" class="btn btn--light-green mt-5">Suivant</a>
-                <a href="./signup_1.html" class="btn btn--dark-green mb-5 btn--small">Précédent</a>
+                <a href="./signup_5.html" class="btn btn--light-green mt-5 js-later-button">Plus tard</a>
+                <a href="./signup_3.html" class="btn btn--dark-green btn--small">Précédent</a>
             </div>
         </form>
     </body>
