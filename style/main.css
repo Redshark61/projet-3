@@ -14,7 +14,11 @@ body {
 h1 {
   color: #5A70BD;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+input {
+  font-size: clamp(1.5rem, 1, 2.5rem);
 }
 
 div[class*="flex"] {
@@ -35,6 +39,15 @@ div[class*="flex"][class*="--row"] {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  div[class*="flex"][class*="--row"] {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 form {
@@ -295,6 +308,12 @@ div.btn-group {
   position: relative;
 }
 
+@media (max-width: 768px) {
+  .progression-dot {
+    margin: 0.5rem;
+  }
+}
+
 .progression-dot span {
   line-height: 2rem;
 }
@@ -310,6 +329,12 @@ div.btn-group {
   height: .7rem;
   background: #E3CF97;
   z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .progression-dot:not(.progression-dot:last-child)::after {
+    width: 3rem;
+  }
 }
 
 .progression-dot[data-active="true"] {
@@ -403,7 +428,6 @@ div.btn-group {
 }
 
 body {
-  height: 100vh;
   background-color: #a5ffbe;
   background-image: url("../img/Desktop - 2.png");
   background-repeat: no-repeat;

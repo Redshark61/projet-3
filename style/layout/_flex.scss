@@ -7,5 +7,10 @@ div[class*="flex"] {
 
     &[class*="--row"] {
         flex-direction: row;
+
+        @include media-min($phone) {
+            flex-direction: column;
+        }
     }
+
 }
