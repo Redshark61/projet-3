@@ -3,6 +3,11 @@ body {
     background-image: url("../img/Desktop\ -\ 2.png");
     background-repeat: no-repeat;
     background-size: cover;
+
+    @include media-min($phone) {
+        background-image: none;
+        height: 100vh;
+    }
 }
 
 .mb-10 {
