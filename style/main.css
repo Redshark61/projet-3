@@ -434,6 +434,13 @@ body {
   background-size: cover;
 }
 
+@media (max-width: 768px) {
+  body {
+    background-image: none;
+    height: 100vh;
+  }
+}
+
 .mb-10 {
   margin-bottom: 10vh;
 }
