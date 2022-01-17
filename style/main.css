@@ -173,6 +173,7 @@ form {
   background-color: #E3A857;
   text-align: center;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .form__list {
@@ -200,6 +201,7 @@ form {
 }
 
 .form__delete {
+  cursor: pointer;
   display: block;
 }
 
