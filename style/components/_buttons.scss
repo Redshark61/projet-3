@@ -20,12 +20,35 @@ button.btn {
         }
     }
 
+    &[class*="--dim-orange"] {
+        @include btn-dim-orange;
+
+        &[class*="--empty"] {
+            background: none;
+            box-shadow: none;
+            color: $dim-orange;
+
+            &:hover {
+                text-decoration: underline;
+                background: none;
+            }
+        }
+
+        &:hover {
+            background: $hover-light-green;
+        }
+    }
+
     &.btn--small {
         @include button(0.5rem);
         width: fit-content;
     }
 }
 
-div.btn-group {
+*[class*="btn-group"] {
     gap: 1rem;
+
+    &[class*="btn-group--3"] {
+        gap: 3rem;
+    }
 }

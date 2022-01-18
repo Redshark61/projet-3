@@ -1,0 +1,16 @@
+.home {
+    aside {
+        a {
+            &.btn--dim-orange--empty {
+                padding: 1rem 0.5rem;
+            }
+        }
+    }
+
+    .middle-line{
+        background-color: #000;
+        width: 2px;
+        height: 50vh;
+    }
+
+}

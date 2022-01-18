@@ -4,6 +4,10 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 
+    &[class*="no-bg"] {
+        background-image: none;
+    }
+
     @include media-min($phone) {
         background-image: none;
         height: 100vh;
@@ -16,4 +20,19 @@ body {
 
 .mt-5 {
     margin-top: 5vh;
+}
+
+.mt-10 {
+    margin-top: 10vh;
+}
+
+aside {
+    padding: 1vw;
+    background-color: $light-purple;
+    height: 100%;
+}
+
+.icon {
+    max-height: 35px;
+    max-height: 35px;
 }
