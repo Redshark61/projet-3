@@ -6,11 +6,14 @@
 
 @import 'layout/flex';
 @import 'layout/form';
+@import 'layout/grid';
 
 @import 'components/buttons';
 @import 'components/progress';
 @import 'components/loader';
+@import 'components/card';
 
 @import 'pages/login';
+@import 'pages/home';
 
 @import 'themes/theme';

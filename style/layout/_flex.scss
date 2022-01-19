@@ -1,5 +1,6 @@
-div[class*="flex"] {
+*[class*="flex"] {
     display: flex;
+    word-break: break-word;
 
     &[class*="--col"] {
         flex-direction: column;
@@ -12,5 +13,22 @@ div[class*="flex"] {
             flex-direction: column;
         }
     }
+
+    &[class*="--center"] {
+        align-items: center;
+    }
+
+    &[class*="--space-around"] {
+        justify-content: space-around;
+    }
+
+    &[class*="--space-between"] {
+        justify-content: space-between;
+    }
+
+    &[class*="--space-evenly"] {
+        justify-content: space-evenly;
+    }
+	
 
 }

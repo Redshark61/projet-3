@@ -11,6 +11,13 @@
     color: $light-green;
 }
 
+@mixin btn-dim-orange($blur: 7px, $opacity: 0.5) {
+    background: $dim-orange;
+    box-shadow: 2px 4px 6px -2px rgba(0, 0, 0, $opacity);
+    border-radius: 14px;
+    color: #000;
+}
+
 @mixin active-btn-dark-green($blur: 7px) {
     background: $dark-green;
     box-shadow: 4px 4px $blur rgba($dark-green, 0.6);
@@ -22,36 +29,40 @@
 
 @mixin active-btn-purple {
     background: $light-purple;
-    box-shadow: inset -4px -4px 9px -4px #A8BAF8,
-        inset 5px 5px 9px #1A2C68;
+    box-shadow: inset -4px -4px 9px -4px #a8baf8, inset 5px 5px 9px #1a2c68;
 }
 
 @mixin btn-purple {
     background: $light-purple;
-    box-shadow: 5px 4px 7px rgba(35, 48, 94, 0.5),
-        inset -5px -5px 9px #1A2C68,
-        inset 4px 4px 9px #A8BAF8;
+    box-shadow: 5px 4px 7px rgba(35, 48, 94, 0.5), inset -5px -5px 9px #1a2c68,
+        inset 4px 4px 9px #a8baf8;
 }
 
 @mixin button($size: 1rem, $position: center) {
-    display: inline-block;
     text-decoration: none;
     text-align: $position;
     color: white;
-    font-size: $size;
+    font-size: #{"min(3vw,#{$size})"};
     font-weight: bold;
-    padding: $size 2*$size;
-    border-radius: 5px;
+    padding: $size 2 * $size;
     transition: box-shadow 0.3s ease-in-out;
     cursor: pointer;
-    border-radius: $size*0.75;
+    border-radius: $size * 0.75;
+
+    @include media-min($phone) {
+        padding: 0.5rem;
+    }
+
+    &:not([class*="flex"]) {
+        display: inline-block;
+    }
 
     *:not(input) {
         text-align: left;
     }
 }
 
-@mixin placeholder($color, $size:1rem, $weight:normal) {
+@mixin placeholder($color, $size: 1rem, $weight: normal) {
     &::placeholder {
         color: $color;
         opacity: 0.5;
@@ -73,6 +84,5 @@
         & {
             @content;
         }
-
     }
 }
