@@ -10,3 +10,9 @@
 .grid__7 {
     grid-column: 3/11;
 }
+
+main.grid__7{
+    @include media-min($phone) {
+        grid-column: 1/11;
+    }
+}

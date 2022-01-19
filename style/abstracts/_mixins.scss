@@ -42,12 +42,16 @@
     text-decoration: none;
     text-align: $position;
     color: white;
-    font-size: #{"min(2vw,#{$size})"};
+    font-size: #{"min(3vw,#{$size})"};
     font-weight: bold;
     padding: $size 2 * $size;
     transition: box-shadow 0.3s ease-in-out;
     cursor: pointer;
     border-radius: $size * 0.75;
+
+    @include media-min($phone) {
+        padding: 0.5rem;
+    }
 
     &:not([class*="flex"]) {
         display: inline-block;

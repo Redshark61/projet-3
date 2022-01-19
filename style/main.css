@@ -134,7 +134,7 @@ form {
   text-decoration: none;
   text-align: left;
   color: white;
-  font-size: min(2vw,0.7rem);
+  font-size: min(3vw,0.7rem);
   font-weight: bold;
   padding: 0.7rem 1.4rem;
   -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
@@ -148,6 +148,12 @@ form {
   padding: 0.5rem 1rem;
   color: black;
   cursor: text;
+}
+
+@media (max-width: 768px) {
+  .form__control {
+    padding: 0.5rem;
+  }
 }
 
 .form__control:not([class*="flex"]) {
@@ -268,13 +274,21 @@ form {
   grid-column: 3/11;
 }
 
+@media (max-width: 768px) {
+  main.grid__7 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 10;
+    grid-column: 1/11;
+  }
+}
+
 a.btn,
 button.btn {
   border: none;
   text-decoration: none;
   text-align: center;
   color: white;
-  font-size: min(2vw,1rem);
+  font-size: min(3vw,1rem);
   font-weight: bold;
   padding: 1rem 2rem;
   -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
@@ -283,6 +297,13 @@ button.btn {
   transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   cursor: pointer;
   border-radius: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  a.btn,
+  button.btn {
+    padding: 0.5rem;
+  }
 }
 
 a.btn:not([class*="flex"]),
@@ -355,7 +376,7 @@ button.btn.btn--small {
   text-decoration: none;
   text-align: center;
   color: white;
-  font-size: min(2vw,0.5rem);
+  font-size: min(3vw,0.5rem);
   font-weight: bold;
   padding: 0.5rem 1rem;
   -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
@@ -367,6 +388,13 @@ button.btn.btn--small {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+@media (max-width: 768px) {
+  a.btn.btn--small,
+  button.btn.btn--small {
+    padding: 0.5rem;
+  }
 }
 
 a.btn.btn--small:not([class*="flex"]),
@@ -527,6 +555,13 @@ button.btn.btn--small *:not(input) {
           box-shadow: 2px 4px 6px -2px rgba(0, 0, 0, 0.5);
 }
 
+@media (max-width: 768px) {
+  .card {
+    width: auto;
+    margin-inline: 5vw;
+  }
+}
+
 .card--row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -543,12 +578,6 @@ button.btn.btn--small *:not(input) {
           align-items: center;
 }
 
-.card__dotted-line {
-  width: 2px;
-  height: 100%;
-  background-color: #000;
-}
-
 .card--dotted-line::after {
   content: '';
   position: absolute;
@@ -559,6 +588,12 @@ button.btn.btn--small *:not(input) {
   -webkit-transform: translate(-50%, -10%);
           transform: translate(-50%, -10%);
   background: repeating-linear-gradient(0deg, transparent, transparent 2px, #000 1px, #000 3px);
+}
+
+@media (max-width: 768px) {
+  .card--dotted-line::after {
+    display: none;
+  }
 }
 
 .card__content {
@@ -579,14 +614,35 @@ button.btn.btn--small *:not(input) {
   margin: 3rem 1rem 0 0;
 }
 
+@media (max-width: 768px) {
+  .home h1 {
+    margin-top: 5vh;
+    display: block;
+  }
+}
+
 .home aside a.btn--dim-orange--empty {
   padding: 1rem 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .home aside a.flex--center.btn.btn--light-green {
+    gap: 1rem;
+  }
 }
 
 .home .middle-line {
   background-color: #000;
   width: 2px;
   height: 50vh;
+}
+
+@media (max-width: 768px) {
+  .home .middle-line {
+    height: 2px;
+    width: 80vw;
+    margin: 5vh auto;
+  }
 }
 
 .home section {
@@ -627,10 +683,58 @@ aside {
   padding: 1vw;
   background-color: #5A70BD;
   height: 100%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  aside {
+    position: fixed;
+    width: 70vw;
+    z-index: 1;
+    padding: 5vw;
+    padding-top: 4rem;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  aside.nav--open {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+main {
+  z-index: 0;
 }
 
 .icon {
   max-height: 35px;
   max-height: 35px;
+}
+
+.back-button {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  aspect-ratio: 1;
+  background-color: #5A70BD;
+  border-radius: 0 0 20px 0;
+  border: 1px solid black;
+}
+
+.back-button .line {
+  width: 70%;
+  height: 3px;
+  background-color: black;
+  margin: 0.5rem auto;
+}
+
+@media (max-width: 768px) {
+  .back-button {
+    display: block;
+    z-index: 2;
+  }
 }
 /*# sourceMappingURL=main.css.map */
