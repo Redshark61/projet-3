@@ -31,6 +31,8 @@ if (isMedical) {
 
 	// If the current node is the last one, then change the url to redirect to the home page
 	if (currentNode == progressionDots[progressionDots.length - 1]) {
-		links[0].href = "../home/home.html";
+		links[0].href = "../../home";
+	} else if (currentNode == progressionDots[0]) {
+		links[1].href = "../../";
 	}
 }

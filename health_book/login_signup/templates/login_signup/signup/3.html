@@ -1,0 +1,47 @@
+{% extends 'login_signup/base.html' %}
+{% load static %}
+
+{% block title %}Signup - 2{% endblock title %}
+
+{% block content %}
+
+<div class="loading"></div>
+<div class="progression-container">
+    <div class="progression-dot" data-active="false"><span>1</span></div>
+    <div class="progression-dot" data-active="false"><span>2</span></div>
+    <div class="progression-dot" data-active="true"><span>3</span></div>
+    <div class="progression-dot" data-active="false"><span>4</span></div>
+    <div class="progression-dot" data-active="false"><span>5</span></div>
+    <div class="progression-dot" data-active="false"><span>6</span></div>
+</div>
+
+<h1>Adresse</h1>
+<form action="" method="post">
+
+    <div class="form__group">
+        <label for="city">Commune</label>
+        <input type="text" name="city" id="city" class="form__control js-input-cities" placeholder="61250"
+            list="city--list" required>
+        <datalist id="city--list" class=".js-datalist-adress"></datalist>
+    </div>
+
+    <div class="form__group">
+        <label for="adress">Adresse</label>
+        <div class="loader">
+            <input type="text" name="adress" id="adress" class="form__control btn btn--dark-green js-input-address"
+                placeholder="12 bis rue des sources" required>
+            <div class="js-loader"></div>
+        </div>
+    </div>
+
+    <div class="btn-group flex--col">
+        <a href="../4" class="btn btn--light-green mt-5">Suivant</a>
+        <a href="../2" class="btn btn--dark-green btn--small">Précédent</a>
+    </div>
+</form>
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'login_signup/js/adress.js'%}"></script>
+<script src="{% static 'login_signup/js/remove-medical.js' %}"></script>
+{% endblock script %}
