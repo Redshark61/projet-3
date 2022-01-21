@@ -19,9 +19,8 @@ from login_signup import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
-    path('signup/<int:number>/', views.signup),
+    path('', views.index, name='index'),
+    path('signup/<int:number>/', views.signup, name="signup"),
     path('signup/medical/', views.signupMedical),
-    path('home/', views.home),
-
+    path('home/', views.home, name="home"),
 ]

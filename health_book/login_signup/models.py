@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-
+"""
 class Diseases(models.Model):
 
     name = models.CharField(max_length=100)
@@ -100,3 +100,4 @@ class Treatment(models.Model):
     prescription = models.TextField()
     end_date = models.DateField(null=True, blank=True)
     is_permanent = models.BooleanField(default=False)
+"""
