@@ -20,7 +20,7 @@ class RPPS(models.Model):
     lastname = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.rpps_id} : {self.firstname} {self.lastname}"
+        return f"{self.rpps_id}"
 
 
 class Job(models.Model):
@@ -53,13 +53,13 @@ class User(models.Model):
     firstname = models.CharField(max_length=100, null=True)
     lastname = models.CharField(max_length=100, null=True)
     gender = models.CharField(max_length=1, choices=Genders.choices, null=True)
-    main_doctor = models.ForeignKey("self", on_delete=models.SET_NULL,
-                                    null=True, related_name="User_main_doctor")
-    parent1 = models.ForeignKey("self", on_delete=models.SET_NULL, null=True,
-                                blank=True, related_name="User_parent1")
-    parent2 = models.ForeignKey("self", on_delete=models.SET_NULL, null=True,
-                                blank=True, related_name="User_parent2")
-    address = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
+    main_doctor_id = models.ForeignKey("self", on_delete=models.SET_NULL,
+                                       null=True, related_name="User_main_doctor")
+    parent1_id = models.ForeignKey("self", on_delete=models.SET_NULL, null=True,
+                                   blank=True, related_name="User_parent1")
+    parent2_id = models.ForeignKey("self", on_delete=models.SET_NULL, null=True,
+                                   blank=True, related_name="User_parent2")
+    address_id = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
     birth_date = models.DateField()
 
 
@@ -67,7 +67,7 @@ class TrustedPerson(models.Model):
 
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
-    address = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
+    address_id = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=20)
 
@@ -82,8 +82,8 @@ class UserDisease(models.Model):
 class Doctor(models.Model):
 
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    rpps = models.ForeignKey(RPPS, on_delete=models.CASCADE)
-    job = models.ForeignKey(Job, on_delete=models.SET_NULL, null=True)
+    rpps_id = models.ForeignKey(RPPS, on_delete=models.CASCADE)
+    job_id = models.ForeignKey(Job, on_delete=models.SET_NULL, null=True)
 
 
 class Appointment(models.Model):
