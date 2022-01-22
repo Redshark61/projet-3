@@ -1,5 +1,3 @@
-from http.client import HTTPResponse
-from re import template
 from django.shortcuts import render
 
 # Create your views here.
@@ -13,8 +11,17 @@ def index(request):
 
 def signup(request, number):
     nextNumber = number + 1
+    previousNumber = number - 1
     isMedical = request.session['medical']
-    return render(request, f'login_signup/signup/{number}.html', {'id': nextNumber, 'isMedical': isMedical})
+    stepProgress = '12' if isMedical else '123456'
+    context = {
+        'next_id': nextNumber,
+        'current_id': str(number),
+        'prev_id': previousNumber,
+        'is_medical': isMedical,
+        'step_progress': stepProgress
+    }
+    return render(request, f'login_signup/signup/{number}.html', context)
 
 
 def signupMedical(request):

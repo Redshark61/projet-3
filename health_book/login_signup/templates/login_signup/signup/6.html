@@ -12,12 +12,17 @@
 {% block content %}
 
 <div class="progression-container">
-    <div class="progression-dot" data-active="false"><span>1</span></div>
-    <div class="progression-dot" data-active="false"><span>2</span></div>
-    <div class="progression-dot" data-active="false"><span>3</span></div>
-    <div class="progression-dot" data-active="false"><span>4</span></div>
-    <div class="progression-dot" data-active="false"><span>5</span></div>
-    <div class="progression-dot" data-active="true"><span>6</span></div>
+    {% for i in '123456' %}
+    {% if current_id == i %}
+    <div class="progression-dot" data-active="true">
+        <span>{{i}}</span>
+    </div>
+    {% else %}
+    <div class="progression-dot" data-active="false">
+        <span>{{i}}</span>
+    </div>
+    {% endif %}
+    {% endfor %}
 </div>
 
 <h1>Parents</h1>
@@ -36,7 +41,7 @@
 
     <div class="btn-group flex--col">
         <a href="{% url 'home' %}" class="btn btn--light-green mt-5 js-later-button">Plus tard</a>
-        <a href="../5" class="btn btn--dark-green btn--small">Précédent</a>
+        <a href="{% url 'signup' prev_id %}" class="btn btn--dark-green btn--small">Précédent</a>
     </div>
 </form>
 {% endblock content %}

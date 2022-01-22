@@ -5,37 +5,58 @@
 
 {% block content %}
 <div class="progression-container">
-    <div class="progression-dot" data-active="false"><span>1</span></div>
-    <div class="progression-dot" data-active="true"><span>2</span></div>
-    <div class="progression-dot" data-active="false"><span>3</span></div>
-    <div class="progression-dot" data-active="false"><span>4</span></div>
-    <div class="progression-dot" data-active="false"><span>5</span></div>
-    <div class="progression-dot" data-active="false"><span>6</span></div>
+    {% for i in step_progress %}
+    {% if current_id == i %}
+    <div class="progression-dot" data-active="true">
+        <span>{{i}}</span>
+    </div>
+    {% else %}
+    <div class="progression-dot" data-active="false">
+        <span>{{i}}</span>
+    </div>
+    {% endif %}
+    {% endfor %}
 </div>
 
-<h1>Mot de passe / identifiant</h1>
+<h1>Informations personnelles</h1>
 <form action="" method="post">
 
+    {% if not isMedical %}
     <div class="form__group">
-        <label for="security-code">Code de sécurité sociale*</label>
-        <input type="tel" name="security-code" id="security-code" class="form__control js-security-code"
-            placeholder="1-23-45-67-890-123 45" required>
+        <label for="firstname">Prénom</label>
+        <input type="text" name="firstname" id="firstname" class="form__control" placeholder="Jean" required />
     </div>
 
     <div class="form__group">
-        <label for="password">Mot de passe*</label>
-        <input type="password" name="password" id="password" class="form__control" placeholder="***" required>
+        <label for="lastname">Nom</label>
+        <input type="text" name="lastname" id="lastname" class="form__control btn btn--dark-green" placeholder="Dupuis"
+            required />
+    </div>
+    {% endif %}
+
+
+    <div class="form__group">
+        <label for="password_confirm">Sexe (physique)</label>
+        <input type="text" name="password_confirm" id="password_confirm" class="form__control btn btn--dark-green"
+            placeholder="Masculin" list="gender" required />
+        <datalist id="gender">
+            <option value="Masculin"></option>
+            <option value="Féminin"></option>
+        </datalist>
     </div>
 
     <div class="form__group">
-        <label for="password-confirm">Confirmer du mot de passe*</label>
-        <input type="password" name="password-confirm" id="password-confirm" class="form__control" placeholder="***"
-            required>
+        <label for="birthdate">Date de naissance</label>
+        <input type="date" name="birthdate" id="birthdate" class="form__control btn btn--dark-green" required />
     </div>
 
     <div class="btn-group flex--col">
-        <a href="{% url 'signup' id %}" class="btn btn--light-green mt-5">Suivant</a>
-        <a href="../1" class="btn btn--dark-green mb-5 btn--small">Précédent</a>
+        {% if not is_medical%}
+        <a href="{% url 'signup' next_id %}" class="btn btn--light-green mt-5">Suivant</a>
+        {% else %}
+        <a href="{% url 'home' %}" class="btn btn--light-green mt-5">Suivant</a>
+        {% endif %}
+        <a href="{% url 'signup' prev_id %}" class="btn btn--dark-green mb-5 btn--small">Précédent</a>
     </div>
 </form>
 {% endblock content %}
