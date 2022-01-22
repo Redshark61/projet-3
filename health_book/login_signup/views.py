@@ -58,9 +58,8 @@ def login(request):
             if user is not None:
                 request.session['user_id'] = user.id
                 return render(request, 'login_signup/home/home.html', {'user_id': user.id})
-            else:
-                form = LoginForm()
-                return render(request, 'login_signup/login.html', {'is_valid': False, 'form': form})
+            form = LoginForm()
+            return render(request, 'login_signup/login.html', {'is_valid': False, 'form': form})
         else:
             form = LoginForm()
             return render(request, 'login_signup/login.html', {'is_valid': False, 'form': form})
