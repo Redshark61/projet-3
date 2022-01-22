@@ -23,4 +23,5 @@ urlpatterns = [
     path('signup/<int:number>/', views.signup, name="signup"),
     path('signup/medical/', views.signupMedical),
     path('home/', views.home, name="home"),
+    path('login/', views.login, name="login"),
 ]
