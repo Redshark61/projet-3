@@ -47,7 +47,7 @@ class User(models.Model):
         MASCULIN = "M"
         FEMININ = "F"
 
-    id_code = models.CharField(max_length=20)
+    id_code = models.CharField(max_length=30)
     mail = models.EmailField(null=True)
     password = models.CharField(max_length=100)
     firstname = models.CharField(max_length=100, null=True)

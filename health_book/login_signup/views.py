@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from login_signup.forms import Connection1, LoginForm
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 # Create your views here.
 
 
@@ -33,10 +34,10 @@ def signup(request, number):
                     form.cleaned_data['id_code'], form.cleaned_data['mail'], form.cleaned_data['password'])
                 user.save()
                 request.session['user_id'] = user.id
-                return render(request, f'login_signup/signup/signup{nextNumber}.html', {})
+                return render(request, f'login_signup/signup/{nextNumber}.html', {})
         else:
             context['is_valid'] = False
-            return render(request, f'login_signup/signup/signup{number}.html', context)
+            return render(request, f'login_signup/signup/{number}.html', context)
     else:
         form = className.__call__()
         context['form'] = form
@@ -53,14 +54,16 @@ def login(request):
         form = LoginForm(request.POST)
 
         if form.is_valid():
-            user = User.objects.get(username=form.cleaned_data['id_code'])
-            if user.check_password(form.cleaned_data['password']):
+            user = authenticate(username=form.cleaned_data['id_code'], password=form.cleaned_data['password'])
+            if user is not None:
                 request.session['user_id'] = user.id
                 return render(request, 'login_signup/home/home.html', {'user_id': user.id})
             else:
-                return render(request, 'login_signup/login.html', {'is_valid': False})
+                form = LoginForm()
+                return render(request, 'login_signup/login.html', {'is_valid': False, 'form': form})
         else:
-            return render(request, 'login_signup/login.html', {'is_valid': False})
+            form = LoginForm()
+            return render(request, 'login_signup/login.html', {'is_valid': False, 'form': form})
     else:
         form = LoginForm()
         return render(request, 'login_signup/login.html', {'form': form})
