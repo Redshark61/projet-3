@@ -9,11 +9,19 @@ class Connection1(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['id_code', 'mail', 'password']
+        fields = ['id_code', 'mail', 'password', 'firstname', 'lastname']
         widgets = {
             'id_code': forms.TextInput(attrs={
                 'class': 'form__control btn btn--dark-green js-security-code',
                 'placeholder': '0-00-00-00-000-000 0'
+            }),
+            'firstname': forms.TextInput(attrs={
+                'class': 'form__control btn btn--dark-green',
+                'placeholder': 'John'
+            }),
+            'lastname': forms.TextInput(attrs={
+                'class': 'form__control btn btn--dark-green',
+                'placeholder': 'Doe'
             }),
             'mail': forms.EmailInput(attrs={
                 'class': 'form__control btn btn--dark-green',
@@ -35,6 +43,7 @@ class LoginForm(forms.Form):
     id_code = forms.CharField(widget=forms.TextInput(
         attrs={'class': 'form__control btn btn--dark-green js-security-code',
                'placeholder': '0-00-00-00-000-000 0'}))
+
     password = forms.CharField(widget=forms.PasswordInput(
         attrs={'class': 'form__control btn btn--dark-green',
                'autocomplete': 'false',
