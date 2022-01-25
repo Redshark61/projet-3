@@ -13,7 +13,7 @@
 		<a href="#" class="flex--center btn btn--light-green">
 			<img src="{% static 'login_signup/img/gear.svg'%}" alt="">
 			Paramètre</a>
-		<a href="{% url 'index' %}" class="flex--center btn btn--light-green">
+		<a href="{% url 'logout' %}" class="flex--center btn btn--light-green">
 			<img src="{% static 'login_signup/img/leave.svg'%}" alt="">
 			Se déconnecter</a>
 	</div>
@@ -38,7 +38,7 @@
 </aside>
 
 <main class="grid__7">
-	<h1>Bienvenue <br> {{user_id}}</h1>
+	<h1>Bienvenue <br> {{user.first_name}} - {{user.last_name}}</h1>
 	<div class="flex--row flex--space-evenly mt-10">
 		<section>
 			<h2 class="text-center">Traitements</h2>

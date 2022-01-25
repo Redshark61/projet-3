@@ -66,8 +66,8 @@
     </div>
 
     <div class="btn-group flex--col">
-        <a href="{% url 'signup' next_id %}" class="btn btn--light-green mt-5">Suivant</a>
-        <a href="{% url 'signup' prev_id %}" class="btn btn--dark-green btn--small">Précédent</a>
+        <a href="{% url 'login_signup:signup' next_id %}" class="btn btn--light-green mt-5">Suivant</a>
+        <a href="{% url 'login_signup:signup' prev_id %}" class="btn btn--dark-green btn--small">Précédent</a>
     </div>
 </form>
 {% endblock content %}

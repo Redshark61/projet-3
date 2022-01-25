@@ -52,11 +52,11 @@
 
     <div class="btn-group flex--col">
         {% if not is_medical%}
-        <a href="{% url 'signup' next_id %}" class="btn btn--light-green mt-5">Suivant</a>
+        <a href="{% url 'login_signup:signup' next_id %}" class="btn btn--light-green mt-5">Suivant</a>
         {% else %}
-        <a href="{% url 'home' %}" class="btn btn--light-green mt-5">Suivant</a>
+        <a href="{% url 'login_signup:home' %}" class="btn btn--light-green mt-5">Suivant</a>
         {% endif %}
-        <a href="{% url 'signup' prev_id %}" class="btn btn--dark-green mb-5 btn--small">Précédent</a>
+        <a href="{% url 'login_signup:signup' prev_id %}" class="btn btn--dark-green mb-5 btn--small">Précédent</a>
     </div>
 </form>
 {% endblock content %}

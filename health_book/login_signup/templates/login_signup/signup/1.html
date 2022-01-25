@@ -24,37 +24,28 @@
 {% endif %}
 
 <form action="" method="post">
-
   {% csrf_token %}
+
+  {% if is_medical %}
+  <div class="form__group">
+    <label for="code_id">RPPS</label>
+    <input type="text" name="code_id" id="code_id" class="form__control btn btn--dark-green" placeholder="01234567891"
+      required>
+  </div>
+  {% else %}
+  <div class="form__group">
+    <label for="code_id">Code de sécurité sociale</label>
+    <input type="text" name="code_id" id="code_id" class="form__control btn btn--dark-green js-security-code"
+      placeholder="0-12-34-56-789-123 45" required>
+  </div>
+  {% endif %}
+
   {% for field in form %}
   <div class="form__group">
     <label for="{{field.auto_id}}">{{field.label}}</label>
     {{field}}
   </div>
   {% endfor %}
-  {% comment %}
-  <div class="form__group">
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" class="form__control btn btn--dark-green"
-      placeholder="exemple@gmail.com" required />
-  </div>
-
-  <div class="form__group">
-    <label for="security-code">Code de sécurité sociale*</label>
-    <input type="tel" name="security-code" id="security-code" class="form__control js-security-code"
-      placeholder="1-23-45-67-890-123 45" required>
-  </div>
-
-  <div class="form__group">
-    <label for="password">Mot de passe*</label>
-    <input type="password" name="password" id="password" class="form__control" placeholder="***" required>
-  </div>
-
-  <div class="form__group">
-    <label for="password-confirm">Confirmer du mot de passe*</label>
-    <input type="password" name="password-confirm" id="password-confirm" class="form__control" placeholder="***"
-      required>
-  </div>{% endcomment %}
 
   <div class="btn-group flex--col">
     <button type="submit" class="btn btn--light-green mt-5">Suivant</button>

@@ -10,21 +10,6 @@
 {% endif %}
 <form action="" method="post">
     {% csrf_token %}
-    {% comment %} <div class="form__group">
-        <label for="id1">Identifiant</label>
-        <input type="tel" name="id1" id="id1" class="form__control js-security-code" placeholder="1-23-45-67-890-123 45"
-            autocomplete="off" required>
-    </div>
-
-    <div class="form__group">
-        <label for="psw">Mot de passe</label>
-        <input type="password" name="psw" id="psw" class="form__control" placeholder="***" autocomplete="off" required>
-    </div>
-
-    <div class="btn-group flex--col">
-        <button type="submit" class="btn btn--light-green mt-5 js-later-button">Se connecter</button>
-        <a href="{% url 'index' %}" class="btn btn--dark-green btn--small">Accueil</a>
-    </div> {% endcomment %}
 
     {% for field in form %}
     <div class="form__group">

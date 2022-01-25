@@ -1,33 +1,30 @@
 from django import forms
-from login_signup.models import User
 
 
-class Connection1(forms.ModelForm):
+class Connection1(forms.Form):
 
-    confirm_password = forms.CharField(widget=forms.PasswordInput(
-        attrs={'class': 'form__control btn btn--dark-green'}))
-
-    class Meta:
-        model = User
-        fields = ['id_code', 'mail', 'password']
-        widgets = {
-            'id_code': forms.TextInput(attrs={
-                'class': 'form__control btn btn--dark-green js-security-code',
-                'placeholder': '0-00-00-00-000-000 0'
-            }),
-            'mail': forms.EmailInput(attrs={
-                'class': 'form__control btn btn--dark-green',
-                'placeholder': 'exemple@gmail.com'
-            }),
-            'password': forms.PasswordInput(attrs={
-                'class': 'form__control btn btn--dark-green',
-                'autocomplete': 'false',
-            }),
-            'confirm_password': forms.PasswordInput(attrs={
-                'class': 'form__control btn btn--dark-green',
-                'autocomplete': 'false',
-            })
-        }
+    first_name = forms.CharField(max_length=100,
+                                 widget=forms.TextInput(attrs={
+                                     'class': 'form__control btn btn--dark-green',
+                                     'placeholder': 'First Name'
+                                 }))
+    last_name = forms.CharField(max_length=100,
+                                widget=forms.TextInput(attrs={
+                                    'class': 'form__control btn btn--dark-green',
+                                    'placeholder': 'First Name'
+                                }))
+    mail = forms.CharField(widget=forms.EmailInput(attrs={
+        'class': 'form__control btn btn--dark-green',
+        'placeholder': 'exemple@gmail.com'
+    }))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form__control btn btn--dark-green',
+        'autocomplete': 'false',
+    }))
+    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form__control btn btn--dark-green',
+        'autocomplete': 'false',
+    }))
 
 
 class LoginForm(forms.Form):

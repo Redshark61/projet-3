@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User as UserAuth
 # Create your models here.
 
 
@@ -47,11 +47,8 @@ class User(models.Model):
         MASCULIN = "M"
         FEMININ = "F"
 
-    id_code = models.CharField(max_length=20)
+    user = models.ForeignKey(UserAuth, on_delete=models.CASCADE, related_name="user", null=True)
     mail = models.EmailField(null=True)
-    password = models.CharField(max_length=100)
-    firstname = models.CharField(max_length=100, null=True)
-    lastname = models.CharField(max_length=100, null=True)
     gender = models.CharField(max_length=1, choices=Genders.choices, null=True)
     main_doctor = models.ForeignKey("self", on_delete=models.SET_NULL,
                                     null=True, related_name="User_main_doctor")
@@ -65,10 +62,10 @@ class User(models.Model):
 
 class TrustedPerson(models.Model):
 
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     address = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=20)
 
 

@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from login_signup.forms import Connection1, LoginForm
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login as loginUser
 # Create your views here.
 
 
@@ -24,16 +25,22 @@ def signup(request, number):
         'step_progress': stepProgress,
         'is_valid': True
     }
+
     if request.method == 'POST':
         form = className.__call__(request.POST)
         context['form'] = form
         if form.is_valid():
             if number == 1:
                 user = User.objects.create_user(
-                    form.cleaned_data['id_code'], form.cleaned_data['mail'], form.cleaned_data['password'])
+                    username=request.POST['code_id'],
+                    email=form.cleaned_data['mail'],
+                    password=form.cleaned_data['password'],
+                    first_name=form.cleaned_data['first_name'],
+                    last_name=form.cleaned_data['last_name'])
                 user.save()
-                request.session['user_id'] = user.id
-                return render(request, f'login_signup/signup/signup{nextNumber}.html', {})
+                loginUser(request, user)
+                # return render(request, f'login_signup/signup/signup{nextNumber}.html', {})
+                return redirect('home:home')
         else:
             context['is_valid'] = False
             return render(request, f'login_signup/signup/signup{number}.html', context)
@@ -45,7 +52,7 @@ def signup(request, number):
 
 def signupMedical(request):
     request.session['medical'] = True
-    return render(request, 'login_signup/signup/medical.html', {})
+    return redirect('login_signup:signup', 1)
 
 
 def login(request):
@@ -53,10 +60,10 @@ def login(request):
         form = LoginForm(request.POST)
 
         if form.is_valid():
-            user = User.objects.get(username=form.cleaned_data['id_code'])
-            if user.check_password(form.cleaned_data['password']):
-                request.session['user_id'] = user.id
-                return render(request, 'login_signup/home/home.html', {'user_id': user.id})
+            user = authenticate(username=form.cleaned_data['id_code'], password=form.cleaned_data['password'])
+            if user is not None:
+                loginUser(request, user)
+                return redirect('home:home')
             else:
                 return render(request, 'login_signup/login.html', {'is_valid': False})
         else:
@@ -64,8 +71,3 @@ def login(request):
     else:
         form = LoginForm()
         return render(request, 'login_signup/login.html', {'form': form})
-
-
-def home(request):
-    user_id = request.session['user_id']
-    return render(request, 'login_signup/home/home.html', {'user_id': user_id})
