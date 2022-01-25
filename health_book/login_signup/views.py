@@ -1,7 +1,8 @@
+from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login as loginUser
 from django.shortcuts import redirect, render
 from login_signup.forms import Connection1, LoginForm
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login as loginUser
 # Create your views here.
 
 
@@ -43,7 +44,7 @@ def signup(request, number):
                 return redirect('home:home')
         else:
             context['is_valid'] = False
-            return render(request, f'login_signup/signup/signup{number}.html', context)
+            return render(request, f'login_signup/signup/{number}.html', context)
     else:
         form = className.__call__()
         context['form'] = form
@@ -67,7 +68,8 @@ def login(request):
             else:
                 return render(request, 'login_signup/login.html', {'is_valid': False})
         else:
-            return render(request, 'login_signup/login.html', {'is_valid': False})
+            form = LoginForm()
+            return render(request, 'login_signup/login.html', {'is_valid': False, 'form': form})
     else:
         form = LoginForm()
         return render(request, 'login_signup/login.html', {'form': form})

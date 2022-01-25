@@ -32,6 +32,7 @@ class LoginForm(forms.Form):
     id_code = forms.CharField(widget=forms.TextInput(
         attrs={'class': 'form__control btn btn--dark-green js-security-code',
                'placeholder': '0-00-00-00-000-000 0'}))
+
     password = forms.CharField(widget=forms.PasswordInput(
         attrs={'class': 'form__control btn btn--dark-green',
                'autocomplete': 'false',

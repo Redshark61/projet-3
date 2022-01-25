@@ -6,7 +6,7 @@
 
 <h1>Connexion</h1>
 {% if not is_valid %}
-<p style="color:red;"></p>
+<p style="color:red;">Incorrect !</p>
 {% endif %}
 <form action="" method="post">
     {% csrf_token %}
