@@ -24,9 +24,9 @@
 <form action="" method="post">
     {% csrf_token %}
     <div class="form__group">
-        {{form.postal_code.errors}}
-        <label for="{{form.postal_code.auto_id}}">{{form.postal_code.label}}</label>
-        {{form.postal_code}}
+        {{form.city.errors}}
+        <label for="{{form.city.auto_id}}">{{form.city.label}}</label>
+        {{form.city}}
         <datalist id="city--list" class=".js-datalist-adress"></datalist>
     </div>
 

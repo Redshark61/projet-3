@@ -67,12 +67,14 @@ def signup(request, number):
                 return redirect('login_signup:signup', nextNumber)
             elif number == 3:
                 print("in signup 3")
-                print(form.cleaned_data)
-                location = form.save()
+                print(request.POST)
+                location = form.save(commit=False)
+                location.postal_code = request.POST['postal_code']
+                location.save()
                 currentUserData = ModelUser.objects.get(user=request.user)
                 currentUserData.address_id = location
                 currentUserData.save()
-                return redirect('home:home', nextNumber)
+                return redirect('home:home')
         else:
             print("invalid form")
             context['is_valid'] = False
@@ -108,13 +110,13 @@ def login(request):
                 loginUser(request, user)
                 return redirect('home:home')
             else:
-                return render(request, 'login_signup/login.html', {'form': form, 'is_valid': False})
+                return render(request, 'login_signup:login', {'form': form, 'is_valid': False})
         else:
             form = LoginForm()
             deleteField(request)
-            return render(request, 'login_signup/login.html', {'is_valid': False, 'form': form})
+            return render(request, 'login_signup:login', {'is_valid': False, 'form': form})
     else:
         form = LoginForm()
         deleteField(request)
 
-        return render(request, 'login_signup/login.html', {'form': form, 'is_valid': True})
+        return render(request, 'login_signup:login', {'form': form, 'is_valid': True})

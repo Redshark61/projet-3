@@ -40,8 +40,14 @@ async function validate(lines) {
 		value = value.replace(/[ôö]/g, "o");
 		value = value.replace(/[ùûü]/g, "u");
 
-		postcode = getPostCode(lines);
+		let postcode = getPostCode(lines);
+		console.log(postcode);
 
+		cityElement = document.createElement("input");
+		cityElement.type = "hidden";
+		cityElement.name = "postal_code";
+		cityElement.value = postcode;
+		document.querySelector("form").appendChild(cityElement);
 		// Use the government API to check if the adress is valid
 		const url = `https://api-adresse.data.gouv.fr/search/?q=${value}&postcode=${postcode}&limit=1`;
 		fetch(url)
@@ -67,11 +73,6 @@ function getPostCode(lines) {
 		if (columns[0].toLowerCase() === inputCities.value.toLowerCase()) {
 			postcode = columns[1];
 			cityName = columns[0].toLowerCase();
-			cityElement = document.createElement("input");
-			cityElement.type = "hidden";
-			cityElement.name = "city";
-			cityElement.value = cityName;
-			document.querySelector("form").appendChild(cityElement);
 			console.log("postcode " + postcode);
 
 			return;

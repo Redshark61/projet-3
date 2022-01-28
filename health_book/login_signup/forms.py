@@ -44,9 +44,9 @@ class Connection2(forms.ModelForm):
 class Connection3(forms.ModelForm):
     class Meta:
         model = Location
-        fields = ['address', 'postal_code']
+        fields = ['city', 'address']
         widgets = {
-            'postal_code': forms.TextInput(attrs={
+            'city': forms.TextInput(attrs={
                 'class': 'form__control js-input-cities',
                 'placeholder': '61250',
                 'list': 'city--list'
