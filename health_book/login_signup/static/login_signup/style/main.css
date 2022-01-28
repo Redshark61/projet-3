@@ -678,6 +678,10 @@ button.btn.btn--small *:not(input) {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
@@ -710,6 +714,8 @@ button.btn.btn--small *:not(input) {
   cursor: pointer;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  background-color: transparent;
+  color: white;
 }
 
 .modal__choice:hover {

@@ -6,6 +6,12 @@ getCities().then((value) => {
 	inputAdress.line = value;
 });
 
+window.addEventListener("keydown", (event) => {
+	if (event.key == "Enter") {
+		event.preventDefault();
+	}
+});
+
 // add event listener to input on enter key
 inputAdress.addEventListener("keyup", async function (e) {
 	if (e.keyCode === 13) {
@@ -60,7 +66,14 @@ function getPostCode(lines) {
 		const columns = line.split(";");
 		if (columns[0].toLowerCase() === inputCities.value.toLowerCase()) {
 			postcode = columns[1];
+			cityName = columns[0].toLowerCase();
+			cityElement = document.createElement("input");
+			cityElement.type = "hidden";
+			cityElement.name = "city";
+			cityElement.value = cityName;
+			document.querySelector("form").appendChild(cityElement);
 			console.log("postcode " + postcode);
+
 			return;
 		}
 	});

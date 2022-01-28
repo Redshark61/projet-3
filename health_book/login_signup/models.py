@@ -35,7 +35,7 @@ class Location(models.Model):
 
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
-    postal_code = models.IntegerField()
+    postal_code = models.CharField(max_length=100)
 
     def __str__(self):
         return f"{self.address}, {self.city} {self.postal_code}"
@@ -47,7 +47,7 @@ class User(models.Model):
         MASCULIN = "M"
         FEMININ = "F"
 
-    user = models.ForeignKey(UserAuth, on_delete=models.CASCADE, related_name="user", null=True)
+    user = models.ForeignKey(UserAuth, on_delete=models.CASCADE, related_name="userKey", null=True)
     mail = models.EmailField(null=True)
     gender = models.CharField(max_length=1, choices=Genders.choices, null=True)
     main_doctor_id = models.ForeignKey("self", on_delete=models.SET_NULL,
@@ -57,7 +57,10 @@ class User(models.Model):
     parent2_id = models.ForeignKey("self", on_delete=models.SET_NULL, null=True,
                                    blank=True, related_name="User_parent2")
     address_id = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
-    birth_date = models.DateField()
+    birth_date = models.DateField(null=True)
+
+    def __str__(self):
+        return f"{self.user.username}"
 
 
 class TrustedPerson(models.Model):

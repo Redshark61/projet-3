@@ -18,45 +18,27 @@
     {% endfor %}
 </div>
 
+{% if not is_valid %}
+<p style="color:red">Probleme</p>
+{% endif %}
+
 <h1>Informations personnelles</h1>
 <form action="" method="post">
-
-    {% if not isMedical %}
+    {% csrf_token %}
+    {% for field in form %}
     <div class="form__group">
-        <label for="firstname">Prénom</label>
-        <input type="text" name="firstname" id="firstname" class="form__control" placeholder="Jean" required />
+        <label for="{{field.auto_id}}">{{field.label}}</label>
+        {{field}}
     </div>
-
-    <div class="form__group">
-        <label for="lastname">Nom</label>
-        <input type="text" name="lastname" id="lastname" class="form__control btn btn--dark-green" placeholder="Dupuis"
-            required />
-    </div>
-    {% endif %}
-
-
-    <div class="form__group">
-        <label for="password_confirm">Sexe (physique)</label>
-        <input type="text" name="password_confirm" id="password_confirm" class="form__control btn btn--dark-green"
-            placeholder="Masculin" list="gender" required />
-        <datalist id="gender">
-            <option value="Masculin"></option>
-            <option value="Féminin"></option>
-        </datalist>
-    </div>
-
-    <div class="form__group">
-        <label for="birthdate">Date de naissance</label>
-        <input type="date" name="birthdate" id="birthdate" class="form__control btn btn--dark-green" required />
-    </div>
+    {% endfor %}
 
     <div class="btn-group flex--col">
         {% if not is_medical%}
-        <a href="{% url 'login_signup:signup' next_id %}" class="btn btn--light-green mt-5">Suivant</a>
+        <button type="submit" class="btn btn--light-green mt-5">Suivant</button>
         {% else %}
-        <a href="{% url 'login_signup:home' %}" class="btn btn--light-green mt-5">Suivant</a>
-        {% endif %}
-        <a href="{% url 'login_signup:signup' prev_id %}" class="btn btn--dark-green mb-5 btn--small">Précédent</a>
+        <button href="{% url 'login_signup:home' %}" class="btn btn--light-green mt-5">Suivant</butt>
+            {% endif %}
+            <a href="{% url 'login_signup:signup' prev_id %}" class="btn btn--dark-green mb-5 btn--small">Précédent</a>
     </div>
 </form>
 {% endblock content %}

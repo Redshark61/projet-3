@@ -60,6 +60,7 @@
 .modal__choices {
 	display: flex;
 	width: 100%;
+	flex-direction: row;
 	justify-content: space-around;
 
 	@include media-min($phone) {
@@ -77,6 +78,8 @@
 	border-radius: 5px;
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
+	background-color: transparent;
+	color: white;
 
 	&:hover {
 		background-color: $light-green;
