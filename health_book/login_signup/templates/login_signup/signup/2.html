@@ -32,13 +32,25 @@
     </div>
     {% endfor %}
 
+    {% if is_medical %}
+    <div class="form__group">
+        <label for="job">Spécialité</label>
+        <input type="text" name="job" id="job" list="job-list" class="form__control btn">
+        <datalist id="job-list">
+            {% for job in jobs %}
+            <option value="{{job.name}}">{{job.name}}</option>
+            {% endfor %}
+        </datalist>
+    </div>
+    {% endif %}
+
     <div class="btn-group flex--col">
         {% if not is_medical%}
         <button type="submit" class="btn btn--light-green mt-5">Suivant</button>
         {% else %}
-        <button href="{% url 'login_signup:home' %}" class="btn btn--light-green mt-5">Suivant</butt>
-            {% endif %}
-            <a href="{% url 'login_signup:signup' prev_id %}" class="btn btn--dark-green mb-5 btn--small">Précédent</a>
+        <button type="submit" value="medical" class="btn btn--light-green mt-5">Suivant</button>
+        {% endif %}
+        <a href="{% url 'login_signup:signup' prev_id %}" class="btn btn--dark-green mb-5 btn--small">Précédent</a>
     </div>
 </form>
 {% endblock content %}

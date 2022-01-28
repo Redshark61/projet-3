@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login as loginUser
 from django.shortcuts import redirect, render
+from login_signup.models import Job
 from login_signup.forms import *
 from django.contrib.auth.models import User
 from login_signup.models import User as ModelUser
@@ -32,7 +33,6 @@ def signup(request, number):
     className = eval(f"Connection{number}")
     nextNumber = number + 1
     previousNumber = number - 1
-    print(type(number), number)
     isMedical = request.session.get('medical')
     stepProgress = '12' if isMedical else '123456'
     context = {
@@ -83,6 +83,9 @@ def signup(request, number):
         print("in signup else")
         form = className.__call__()
         context['form'] = form
+        if number == 2:
+            allJobs = Job.objects.all()
+            context['jobs'] = allJobs
         return render(request, f'login_signup/signup/{number}.html', context)
 
 
@@ -90,6 +93,23 @@ def signupMedical(request):
     request.session['isMedical'] = True
     return redirect('login_signup:signup', 1)
 
+
+# def medicalValidate(request):
+#     if request.method == 'POST':
+#         form = MedicalValidateForm(request.POST)
+#         if form.is_valid():
+#             user = authenticate(username=form.cleaned_data['rpps_code'], password=form.cleaned_data['password'])
+#             if user is not None:
+#                 loginUser(request, user)
+#                 return redirect('home:home')
+#             else:
+#                 return render(request, 'login_signup:login', {'form': form, 'is_valid': False})
+#         else:
+#             form = LoginForm()
+#             return render(request, 'login_signup:login', {'is_valid': False, 'form': form})
+#     else:
+#         form = LoginForm()
+#         return render(request, 'login_signup:login', {'is_valid': True, 'form': form})
 
 def login(request):
 
