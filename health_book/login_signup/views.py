@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login as loginUser
 from django.shortcuts import redirect, render
-from login_signup.models import Job
+from login_signup.models import Job, Doctor, RPPS
 from login_signup.forms import *
 from django.contrib.auth.models import User
 from login_signup.models import User as ModelUser
@@ -35,13 +35,15 @@ def signup(request, number):
     previousNumber = number - 1
     isMedical = request.session.get('medical')
     stepProgress = '12' if isMedical else '123456'
+    jobs = Job.objects.all() if number == 1 else None
     context = {
         'next_id': nextNumber,
         'current_id': str(number),
         'prev_id': previousNumber,
         'is_medical': isMedical,
         'step_progress': stepProgress,
-        'is_valid': True
+        'is_valid': True,
+        'jobs': jobs,
     }
 
     if request.method == 'POST':
@@ -57,6 +59,15 @@ def signup(request, number):
                     first_name=form.cleaned_data['first_name'],
                     last_name=form.cleaned_data['last_name'])
                 user.save()
+                currentUser = ModelUser(user=user)
+                currentUser.save()
+                if isMedical:
+                    job = Job.objects.get(name=request.POST['job'])
+                    rpps = RPPS.objects.get(rpps_id=request.POST['code_id'])
+                    doctor = Doctor(user=currentUser,
+                                    rpps=rpps,
+                                    job=job)
+                    doctor.save()
                 loginUser(request, user)
                 return redirect('login_signup:signup', nextNumber)
             elif number == 2:
@@ -83,9 +94,6 @@ def signup(request, number):
         print("in signup else")
         form = className.__call__()
         context['form'] = form
-        if number == 2:
-            allJobs = Job.objects.all()
-            context['jobs'] = allJobs
         return render(request, f'login_signup/signup/{number}.html', context)
 
 

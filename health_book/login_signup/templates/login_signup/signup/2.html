@@ -32,7 +32,7 @@
     </div>
     {% endfor %}
 
-    {% if is_medical %}
+    {% comment %} {% if is_medical %}
     <div class="form__group">
         <label for="job">Spécialité</label>
         <input type="text" name="job" id="job" list="job-list" class="form__control btn">
@@ -42,7 +42,7 @@
             {% endfor %}
         </datalist>
     </div>
-    {% endif %}
+    {% endif %} {% endcomment %}
 
     <div class="btn-group flex--col">
         {% if not is_medical%}

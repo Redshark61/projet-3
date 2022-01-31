@@ -47,7 +47,7 @@ class User(models.Model):
         MASCULIN = "M"
         FEMININ = "F"
 
-    user = models.ForeignKey(UserAuth, on_delete=models.CASCADE, related_name="userKey", null=True)
+    user = models.ForeignKey(UserAuth, on_delete=models.CASCADE, related_name="userKey")
     mail = models.EmailField(null=True)
     gender = models.CharField(max_length=1, choices=Genders.choices, null=True)
     main_doctor_id = models.ForeignKey("self", on_delete=models.SET_NULL,
@@ -58,6 +58,7 @@ class User(models.Model):
                                    blank=True, related_name="User_parent2")
     address_id = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
     birth_date = models.DateField(null=True)
+    diseases = models.ManyToManyField(Diseases, through="UserDisease", related_name="User_disease", null=True)
 
     def __str__(self):
         return f"{self.user.username}"
@@ -74,16 +75,16 @@ class TrustedPerson(models.Model):
 
 class UserDisease(models.Model):
 
-    user_id = models.ForeignKey(UserAuth, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     disease_id = models.ForeignKey(Diseases, on_delete=models.CASCADE)
     isCurrent = models.BooleanField(default=True)
 
 
 class Doctor(models.Model):
 
-    user_id = models.ForeignKey(UserAuth, on_delete=models.CASCADE)
-    rpps_id = models.ForeignKey(RPPS, on_delete=models.CASCADE)
-    job_id = models.ForeignKey(Job, on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(UserAuth, on_delete=models.CASCADE)
+    rpps = models.ForeignKey(RPPS, on_delete=models.CASCADE)
+    job = models.ForeignKey(Job, on_delete=models.SET_NULL, null=True)
 
 
 class Appointment(models.Model):

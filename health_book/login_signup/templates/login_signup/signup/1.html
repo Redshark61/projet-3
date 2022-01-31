@@ -32,6 +32,16 @@
     <input type="text" name="code_id" id="code_id" class="form__control btn btn--dark-green" placeholder="01234567891"
       required>
   </div>
+  <div class="form__group">
+    <label for="job">Spécialité</label>
+    <input type="text" name="job" id="job" class="form__control btn btn--dark-green" placeholder="Cardiologie" required
+      list='job--list'>
+    <datalist id='job--list'>
+      {% for job in jobs %}
+      <option value="{{job}}">
+        {% endfor %}
+    </datalist>
+  </div>
   {% else %}
   <div class="form__group">
     <label for="code_id">Code de sécurité sociale</label>
